@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dncarhhn877yg" path="res://assets/tilemaps/Floor.png" id="4_5bv33"]
 [ext_resource type="Script" path="res://scene/TileMapGenerator.gd" id="5_7xsav"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yya4e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv87r"]
 atlas = ExtResource("2_nk213")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhbss"]
 atlas = ExtResource("2_nk213")
@@ -18,9 +18,9 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("2_nk213")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bv87r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yya4e"]
 atlas = ExtResource("2_nk213")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c5m42"]
 atlas = ExtResource("3_kbfn1")
@@ -90,7 +90,7 @@ region = Rect2(16, 48, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yya4e")
+"texture": SubResource("AtlasTexture_bv87r")
 }],
 "loop": true,
 "name": &"idle_down",
@@ -114,7 +114,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bv87r")
+"texture": SubResource("AtlasTexture_yya4e")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -6507,7 +6507,7 @@ script = ExtResource("1_tiqlg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_yhmdt")
-animation = &"walk_down"
+animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 5)

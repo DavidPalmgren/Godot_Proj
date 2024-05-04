@@ -4,7 +4,6 @@ var speed = 100
 var player_state
 var last_direction
 
-
 func _physics_process(delta):
 	var direction = Input.get_vector('left','right','up','down')
 
