@@ -15,6 +15,7 @@ func generate_world():
 	for x in MAP_SIZE.x:
 		for y in MAP_SIZE.y:
 			var a = noise.get_noise_2d(x, y)
+
 			if a < LAND_CAP:
 				cells.append(Vector2(x,y))
 			else:
