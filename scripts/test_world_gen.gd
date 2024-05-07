@@ -5,13 +5,12 @@ extends Node2D
 const MAP_SIZE = Vector2(100,100)
 const LAND_CAP = 0.3
 
-
 func _ready():
 	generate_world()
 
 func generate_world():
 	var noise = FastNoiseLite.new()
-	noise.seed = 100 #randi()
+	noise.seed = randi()
 	
 	var cells = []
 	for x in MAP_SIZE.x:

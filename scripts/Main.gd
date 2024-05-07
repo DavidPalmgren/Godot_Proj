@@ -1,6 +1,4 @@
 extends Node
-@export var mob_scene: PackedScene
-@export var world_gen: PackedScene
 
 const MAP_SIZE = Vector2(100,100)
 const LAND_CAP = 0.3
