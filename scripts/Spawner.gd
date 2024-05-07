@@ -1,5 +1,5 @@
 extends Area2D
-@export var mob_scene: PackedScene
+@export var mob_scene: PackedScene = preload("res://scene/Mob.tscn")
 signal spawned
 
 func spawn():
@@ -19,3 +19,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+
+func _on_start_timer_timeout():
+	pass # Replace with function body.
+
+func _on_mob_timer_timeout():
+	pass # Replace with function body.

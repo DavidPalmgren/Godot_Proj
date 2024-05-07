@@ -1,5 +1,5 @@
 extends RigidBody2D
-
+@export var mob_scene: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var mob = $AnimatedSprite2D.sprite_frames.get_animation_names()
