@@ -1,5 +1,4 @@
 extends Node2D
-@export var world_gen: PackedScene = preload("res://scene/test_world_gen.tscn")
 @onready var tilemap = $TileMap
 
 const MAP_SIZE = Vector2(100,100)
