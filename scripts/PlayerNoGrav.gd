@@ -1,6 +1,7 @@
 extends CharacterBody2D
-
-var speed = 100
+signal spawned
+var speed = 300
+var player : Node
 var player_state
 var last_direction
 
@@ -41,6 +42,7 @@ func play_anim(dir, last_dir):
 			print('error')
 	elif player_state == 'walk':
 		if dir.y == -1:
+			spawned.emit()
 			$AnimatedSprite2D.play("walk_up")
 		elif  dir.x == 1:
 			$AnimatedSprite2D.play("walk_right")
