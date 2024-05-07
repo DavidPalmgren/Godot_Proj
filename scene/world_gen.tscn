@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/world_gen.gd" id="1_7nwbi"]
 [ext_resource type="Texture2D" uid="uid://dncarhhn877yg" path="res://assets/tilemaps/Floor.png" id="2_tolfj"]
-[ext_resource type="Script" path="res://scripts/Player.gd" id="3_xk6gt"]
+[ext_resource type="Script" path="res://scripts/PlayerNoGrav.gd" id="3_vkjw1"]
 [ext_resource type="Texture2D" uid="uid://l54kxjv0d0l2" path="res://assets/sprites/BlueNinja/SeparateAnim/Idle.png" id="4_6h0kb"]
 [ext_resource type="Texture2D" uid="uid://d1hymt8ec14kd" path="res://assets/sprites/BlueNinja/SeparateAnim/Walk.png" id="5_ish3x"]
 
@@ -6517,7 +6517,7 @@ layer_0/tile_data = PackedInt32Array(196610, 458752, 6, 131075, 458752, 6, 65539
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 99
-script = ExtResource("3_xk6gt")
+script = ExtResource("3_vkjw1")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
