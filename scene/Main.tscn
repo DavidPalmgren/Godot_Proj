@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddhqdbqct5vub"]
+[gd_scene load_steps=7 format=3 uid="uid://ddhqdbqct5vub"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_eey4b"]
 [ext_resource type="PackedScene" uid="uid://d23o336fdgod5" path="res://scene/Player.tscn" id="3_43gjo"]
-[ext_resource type="Script" path="res://scripts/PlayerNoGrav.gd" id="3_g2g6w"]
 [ext_resource type="Script" path="res://scripts/Spawner.gd" id="4_cvhvo"]
 [ext_resource type="PackedScene" uid="uid://nqlivagpugpo" path="res://scene/test_world_gen.tscn" id="6_cjubd"]
 [ext_resource type="PackedScene" uid="uid://2haodhddsc4f" path="res://scene/HUD.tscn" id="6_ktq55"]
@@ -14,6 +13,7 @@ size = Vector2(41, 32)
 script = ExtResource("1_eey4b")
 
 [node name="StartPosition" type="Marker2D" parent="."]
+visible = false
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 10.0
@@ -22,11 +22,11 @@ wait_time = 10.0
 wait_time = 10.0
 
 [node name="Player" parent="." instance=ExtResource("3_43gjo")]
-script = ExtResource("3_g2g6w")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
 
-[node name="Control" parent="Player" instance=ExtResource("6_ktq55")]
+[node name="HealthBar" parent="Player" instance=ExtResource("6_ktq55")]
 offset_left = -46.0
 offset_top = -20.0
 offset_right = 1455.0
@@ -45,3 +45,4 @@ position = Vector2(-101, -61)
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="lose" from="Player/HealthBar" to="." method="_on_health_bar_lose"]

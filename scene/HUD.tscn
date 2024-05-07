@@ -18,9 +18,3 @@ layout_mode = 0
 offset_right = 674.0
 offset_bottom = 53.0
 step = 1.0
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,5 @@
 extends Node
+
 const MAP_SIZE = Vector2(100,100)
 const LAND_CAP = 0.3
 
@@ -26,5 +27,8 @@ func _ready():
 	new_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
+
+func _on_health_bar_lose():
+	game_over()

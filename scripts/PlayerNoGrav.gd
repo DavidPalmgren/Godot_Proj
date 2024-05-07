@@ -18,6 +18,11 @@ func _physics_process(_delta):
 		last_direction = direction	
 	velocity = direction * speed
 	move_and_slide()
+	for index in get_slide_collision_count():
+		var collision := get_slide_collision(index)
+		var body := collision.get_collider()
+		$HealthBar.take_damage()
+		print("Collided with: ", body.name)
 	play_anim(direction, last_direction)
 	
 func play_anim(dir, last_dir):

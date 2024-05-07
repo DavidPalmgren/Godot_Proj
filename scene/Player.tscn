@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://d23o336fdgod5"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_latxo"]
+[ext_resource type="Script" path="res://scripts/PlayerNoGrav.gd" id="1_8esac"]
 [ext_resource type="Texture2D" uid="uid://l54kxjv0d0l2" path="res://assets/sprites/BlueNinja/SeparateAnim/Idle.png" id="2_el23r"]
 [ext_resource type="Texture2D" uid="uid://d1hymt8ec14kd" path="res://assets/sprites/BlueNinja/SeparateAnim/Walk.png" id="3_huo8p"]
 
@@ -192,7 +192,7 @@ radius = 4.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 99
-script = ExtResource("1_latxo")
+script = ExtResource("1_8esac")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 0)
