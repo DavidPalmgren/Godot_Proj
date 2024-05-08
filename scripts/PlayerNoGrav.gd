@@ -1,5 +1,4 @@
 extends CharacterBody2D
-<<<<<<< HEAD
 
 var SPEED = 100
 var PLAYER_STATE
@@ -8,13 +7,6 @@ var PLAYER_ID
 
 func _ready():
 	PLAYER_ID = get_instance_id()
-=======
-signal spawned
-var speed = 300
-var player : Node
-var player_state
-var last_direction
->>>>>>> 9910a499cb9f6fd824898a618e41525c0c576559
 
 func start(pos):
 	position = pos

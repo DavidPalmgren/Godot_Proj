@@ -1,11 +1,7 @@
 extends RigidBody2D
 @export var mob_scene: PackedScene
 # Called when the node enters the scene tree for the first time.
-<<<<<<< HEAD
 var target_player
-=======
-var player: Node = null
->>>>>>> 9910a499cb9f6fd824898a618e41525c0c576559
 
 func _ready():
 	var mob = $AnimatedSprite2D.sprite_frames.get_animation_names()
