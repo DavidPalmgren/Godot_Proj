@@ -31,21 +31,6 @@ func spawn():
 		print("No players available to assign zombies to.")
 		return null
 
-func spawn():
-	if players.size() > 0:
-		randomize()
-		var random_player = players[randi() % players.size()]
-		print(random_player)
-		var mob = mob_scene.instance()
-		mob.position.x = position.x + lerp(-50, 50, randf())
-		mob.position.y = position.y + lerp(-50, 50, randf())
-		random_player.add_child(mob)
-		spawned.emit()
-		return mob
-	else:
-		print("No players available to assign zombies to.")
-		return null
-
 func _process(_delta):
 	pass
 

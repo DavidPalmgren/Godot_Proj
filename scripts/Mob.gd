@@ -16,10 +16,10 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _set_player(player_ref: Node):
-	player = player_ref
+	target_player = player_ref
 
 func _process(_delta):
-	if player:
+	if target_player:
 		print('player exists')
 
 func _on_body_entered(body:Node):
