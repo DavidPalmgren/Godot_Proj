@@ -45,7 +45,6 @@ func play_anim(dir, last_dir):
 			print('error')
 	elif PLAYER_STATE == 'walk':
 		if dir.y == -1:
-			spawned.emit()
 			$AnimatedSprite2D.play("walk_up")
 		elif  dir.x == 1:
 			$AnimatedSprite2D.play("walk_right")
