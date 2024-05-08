@@ -16,10 +16,10 @@ script = ExtResource("1_eey4b")
 visible = false
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 2.0
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 0.358
 
 [node name="Player" parent="." groups=["players"] instance=ExtResource("3_43gjo")]
 
@@ -42,6 +42,12 @@ shape = SubResource("RectangleShape2D_64qo0")
 
 [node name="TestWorldGen" parent="." instance=ExtResource("6_cjubd")]
 position = Vector2(-101, -61)
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Node 1" type="Node2D" parent="Players"]
+
+[node name="Node 2" type="Node2D" parent="Players"]
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
