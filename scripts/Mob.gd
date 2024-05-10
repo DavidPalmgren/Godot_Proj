@@ -1,11 +1,9 @@
-extends RigidBody2D
+extends Area2D
 @export var mob_scene: PackedScene
-# Called when the node enters the scene tree for the first time.
+@onready var nav : NavigationAgent2D = $NavigationAgent2D
+var finished = false
 var target_player
-
-func _ready():
-	var mob = $AnimatedSprite2D.sprite_frames.get_animation_names()
-	$AnimatedSprite2D.play(mob[4])
+var speed = 100
 
 func set_target_player(player):
 	target_player = player
@@ -18,13 +16,22 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _set_player(player_ref: Node):
 	target_player = player_ref
 
-func _process(_delta):
-	pass
-	#if target_player:
-		#print('player exists')
+func _ready():
+	var mob = $AnimatedSprite2D.sprite_frames.get_animation_names()
+	$AnimatedSprite2D.play(mob[4])
+	set_physics_process(false)
+	call_deferred('setup')
+	
+func setup():
+	await get_tree().physics_frame
+	set_physics_process(true)
+	nav.target_position = target_player.global_position
 
-func _on_body_entered(body:Node):
-	print(body, " entered")
+func _physics_process(delta):
+	if not finished:
+		nav.target_position = target_player.global_position
+		var direction = (nav.get_next_path_position() - global_position).normalized()
+		translate(direction*speed*delta)
 
-func _on_body_exited(body:Node):
-	print(body, " exited")
+func _on_navigation_agent_2d_navigation_finished():
+	finished = true

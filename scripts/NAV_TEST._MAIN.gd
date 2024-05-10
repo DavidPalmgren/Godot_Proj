@@ -1,16 +1,12 @@
 extends Node2D
-@onready var tilemap = get_tree().root.find_child("TileMap", true, false)
+
 var navigation_mesh: NavigationPolygon
 var source_geometry : NavigationMeshSourceGeometryData2D
 var callback_parsing : Callable
 var callback_baking : Callable
 var region_rid: RID
 
-const MAP_SIZE = Vector2(100,100)
-const LAND_CAP = 0.3
-
-func _ready():
-	generate_world()
+func _ready() -> void:
 	navigation_mesh = NavigationPolygon.new()
 	navigation_mesh.agent_radius = 10.0
 	source_geometry = NavigationMeshSourceGeometryData2D.new()
@@ -20,22 +16,6 @@ func _ready():
 	NavigationServer2D.region_set_enabled(region_rid, true)
 	NavigationServer2D.region_set_map(region_rid, get_world_2d().get_navigation_map())
 	parse_source_geometry.call_deferred()
-
-func generate_world():
-	var noise = FastNoiseLite.new()
-	noise.seed = randi()
-	
-	var cells = []
-	for x in MAP_SIZE.x:
-		for y in MAP_SIZE.y:
-			var a = noise.get_noise_2d(x, y)
-
-			if a < LAND_CAP:
-				cells.append(Vector2(x,y))
-			else:
-				tilemap.set_cell(0, Vector2(x,y),0, Vector2(0,5))
-				
-	tilemap.set_cells_terrain_connect(0, cells, 0, 0)
 
 func parse_source_geometry() -> void:
 	source_geometry.clear()

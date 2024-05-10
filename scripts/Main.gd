@@ -1,11 +1,7 @@
-extends Node
-
-const MAP_SIZE = Vector2(100,100)
-const LAND_CAP = 0.3
+extends Node2D
 
 func new_game():
 	$Player.start($StartPosition.position)
-	$TestWorldGen.generate_world()
 	$StartTimer.start()
 
 func game_over():

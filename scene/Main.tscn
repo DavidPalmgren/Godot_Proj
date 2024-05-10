@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64qo0"]
 size = Vector2(41, 32)
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_eey4b")
 
 [node name="StartPosition" type="Marker2D" parent="."]
@@ -27,10 +27,10 @@ wait_time = 2.0
 zoom = Vector2(2, 2)
 
 [node name="HealthBar" parent="Player" instance=ExtResource("6_ktq55")]
-offset_left = -46.0
-offset_top = -20.0
-offset_right = 1455.0
-offset_bottom = 623.0
+offset_left = -54.0
+offset_top = -26.0
+offset_right = 1447.0
+offset_bottom = 617.0
 scale = Vector2(0.140667, 0.160807)
 
 [node name="Spawner" type="Area2D" parent="."]
@@ -41,13 +41,7 @@ script = ExtResource("4_cvhvo")
 shape = SubResource("RectangleShape2D_64qo0")
 
 [node name="TestWorldGen" parent="." instance=ExtResource("6_cjubd")]
-position = Vector2(-101, -61)
-
-[node name="Players" type="Node2D" parent="."]
-
-[node name="Node 1" type="Node2D" parent="Players"]
-
-[node name="Node 2" type="Node2D" parent="Players"]
+position = Vector2(1, 2)
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
