@@ -6,10 +6,17 @@ var callback_parsing : Callable
 var callback_baking : Callable
 var region_rid: RID
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-	
+func _ready() -> void:
+	navigation_mesh = NavigationPolygon.new()
+	navigation_mesh.agent_radius = 10.0
+	source_geometry = NavigationMeshSourceGeometryData2D.new()
+	callback_parsing = on_parsing_done
+	callback_baking = on_baking_done
+	region_rid = NavigationServer2D.region_create()
+	NavigationServer2D.region_set_enabled(region_rid, true)
+	NavigationServer2D.region_set_map(region_rid, get_world_2d().get_navigation_map())
+	parse_source_geometry.call_deferred()
+
 func parse_source_geometry() -> void:
 	source_geometry.clear()
 	var root_node: Node2D = self
@@ -37,19 +44,3 @@ func on_parsing_done() -> void:
 
 func on_baking_done() -> void:
 	NavigationServer2D.region_set_navigation_polygon(region_rid, navigation_mesh)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-
-func _on_world_timer_timeout():
-	navigation_mesh = NavigationPolygon.new()
-	navigation_mesh.agent_radius = 10.0
-	source_geometry = NavigationMeshSourceGeometryData2D.new()
-	callback_parsing = on_parsing_done
-	callback_baking = on_baking_done
-	region_rid = NavigationServer2D.region_create()
-	NavigationServer2D.region_set_enabled(region_rid, true)
-	NavigationServer2D.region_set_map(region_rid, get_world_2d().get_navigation_map())
-	parse_source_geometry.call_deferred()

@@ -13,11 +13,21 @@ size = Vector2(41, 32)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_eey4b")
 
+[node name="GaeaGen" parent="." instance=ExtResource("5_8yhva")]
+position = Vector2(-1, -1)
+scale = Vector2(1, 1.01913)
+script = ExtResource("6_gs456")
+
+[node name="WorldTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
 [node name="StartPosition" type="Marker2D" parent="."]
 visible = false
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.99
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -41,11 +51,7 @@ script = ExtResource("4_cvhvo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner"]
 shape = SubResource("RectangleShape2D_64qo0")
 
-[node name="GaeaGen" parent="." instance=ExtResource("5_8yhva")]
-position = Vector2(-1898, -1414)
-scale = Vector2(1, 1.01913)
-script = ExtResource("6_gs456")
-
+[connection signal="timeout" from="WorldTimer" to="GaeaGen" method="_on_world_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="lose" from="Player/HealthBar" to="." method="_on_health_bar_lose"]

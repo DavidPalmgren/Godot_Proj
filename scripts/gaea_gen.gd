@@ -8,8 +8,16 @@ var region_rid: RID
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	
+	navigation_mesh = NavigationPolygon.new()
+	navigation_mesh.agent_radius = 10.0
+	source_geometry = NavigationMeshSourceGeometryData2D.new()
+	callback_parsing = on_parsing_done
+	callback_baking = on_baking_done
+	region_rid = NavigationServer2D.region_create()
+	NavigationServer2D.region_set_enabled(region_rid, true)
+	NavigationServer2D.region_set_map(region_rid, get_world_2d().get_navigation_map())
+	parse_source_geometry.call_deferred()
+
 func parse_source_geometry() -> void:
 	source_geometry.clear()
 	var root_node: Node2D = self
@@ -23,10 +31,10 @@ func parse_source_geometry() -> void:
 
 func on_parsing_done() -> void:
 	source_geometry.add_traversable_outline(PackedVector2Array([
-		Vector2(0.0, 0.0),
-		Vector2(10000.0, 0.0),
-		Vector2(10000.0, 10000.0),
-		Vector2(0.0, 10000.0)
+		Vector2(-5000, -5000),
+		Vector2(5000,-5000),
+		Vector2(5000, 5000),
+		Vector2(-5000, 5000)
 	]))
 
 	NavigationServer2D.bake_from_source_geometry_data_async(
@@ -41,15 +49,3 @@ func on_baking_done() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-
-
-func _on_world_timer_timeout():
-	navigation_mesh = NavigationPolygon.new()
-	navigation_mesh.agent_radius = 10.0
-	source_geometry = NavigationMeshSourceGeometryData2D.new()
-	callback_parsing = on_parsing_done
-	callback_baking = on_baking_done
-	region_rid = NavigationServer2D.region_create()
-	NavigationServer2D.region_set_enabled(region_rid, true)
-	NavigationServer2D.region_set_map(region_rid, get_world_2d().get_navigation_map())
-	parse_source_geometry.call_deferred()
