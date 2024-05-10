@@ -332,6 +332,7 @@ texture = ExtResource("2_e716a")
 3:3/0/terrain = 0
 3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:3/0 = 0
 4:3/0/terrain_set = 0
 4:3/0/terrain = 0
@@ -475,6 +476,7 @@ navigation_polygon = SubResource("NavigationPolygon_aowsk")
 
 [node name="TileMap" type="TileMap" parent="NavigationRegion2D"]
 position = Vector2(-35, -34)
+scale = Vector2(0.928006, 0.993425)
 tile_set = SubResource("TileSet_d1e24")
 format = 2
 layer_0/navigation_enabled = false

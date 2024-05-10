@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddhqdbqct5vub"]
+[gd_scene load_steps=8 format=3 uid="uid://ddhqdbqct5vub"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_eey4b"]
 [ext_resource type="PackedScene" uid="uid://d23o336fdgod5" path="res://scene/Player.tscn" id="3_43gjo"]
 [ext_resource type="Script" path="res://scripts/Spawner.gd" id="4_cvhvo"]
-[ext_resource type="PackedScene" uid="uid://nqlivagpugpo" path="res://scene/test_world_gen.tscn" id="6_cjubd"]
+[ext_resource type="PackedScene" uid="uid://c2ffcwghmy0vy" path="res://gaea_gen.tscn" id="5_8yhva"]
+[ext_resource type="Script" path="res://gaea_gen.gd" id="6_gs456"]
 [ext_resource type="PackedScene" uid="uid://2haodhddsc4f" path="res://scene/HUD.tscn" id="6_ktq55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64qo0"]
@@ -40,8 +41,10 @@ script = ExtResource("4_cvhvo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner"]
 shape = SubResource("RectangleShape2D_64qo0")
 
-[node name="TestWorldGen" parent="." instance=ExtResource("6_cjubd")]
-position = Vector2(1, 2)
+[node name="GaeaGen" parent="." instance=ExtResource("5_8yhva")]
+position = Vector2(-1898, -1414)
+scale = Vector2(1, 1.01913)
+script = ExtResource("6_gs456")
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
