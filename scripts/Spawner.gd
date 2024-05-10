@@ -1,5 +1,5 @@
 extends Area2D
-@export var mob_scene: PackedScene = preload("res://scene/Mob.tscn")
+@export var mob_scene: PackedScene = load("res://scene/Mob.tscn")
 signal spawned
 
 var players: Array = []

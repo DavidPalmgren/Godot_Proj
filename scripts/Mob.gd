@@ -19,8 +19,9 @@ func _set_player(player_ref: Node):
 	target_player = player_ref
 
 func _process(_delta):
-	if target_player:
-		print('player exists')
+	pass
+	#if target_player:
+		#print('player exists')
 
 func _on_body_entered(body:Node):
 	print(body, " entered")
