@@ -1,9 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://d23o336fdgod5"]
+[gd_scene load_steps=26 format=3 uid="uid://d23o336fdgod5"]
 
 [ext_resource type="Script" path="res://scripts/PlayerNoGrav.gd" id="1_8esac"]
 [ext_resource type="Texture2D" uid="uid://l54kxjv0d0l2" path="res://assets/sprites/BlueNinja/SeparateAnim/Idle.png" id="2_el23r"]
 [ext_resource type="Texture2D" uid="uid://d1hymt8ec14kd" path="res://assets/sprites/BlueNinja/SeparateAnim/Walk.png" id="3_huo8p"]
-[ext_resource type="Texture2D" uid="uid://b1lbj6250mwgc" path="res://assets/sprites/BlueNinja/SeparateAnim/Dead.png" id="4_bevag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yya4e"]
 atlas = ExtResource("2_el23r")
@@ -203,6 +202,3 @@ animation = &"walk_up"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_oqbqb")
-
-[node name="object_to_place" type="Sprite2D" parent="."]
-texture = ExtResource("4_bevag")

@@ -2,11 +2,27 @@ extends Node
 
 const MAP_SIZE = Vector2(100,100)
 const LAND_CAP = 0.3
+@onready var GUI = $PlayerUI
+@onready var PLAYER = $Player
+@onready var TILE_MAP = $TestWorldGen
 
 func new_game():
 	$Player.start($StartPosition.position)
 	$TestWorldGen.generate_world()
 	$StartTimer.start()
+	init_UI()
+	init_player()
+
+func init_UI():
+	GUI.set_new_round(1)
+	GUI.set_new_gold(100)
+	GUI.set_new_lumber(100)
+	GUI.set_player_ref($Player)
+	
+func init_player():
+	print('sending tile map with')
+	print(TILE_MAP)
+	PLAYER.set_tilemap_ref(TILE_MAP)
 
 func game_over():
 	$MobTimer.stop()
