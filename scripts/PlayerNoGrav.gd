@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-var SPEED = 100
+var SPEED = 125
 var PLAYER_STATE
 var LAST_DIRECTION
 var PLAYER_ID
 
 func _ready():
+	SignalBus.connect("on_hit", _on_hit)
 	PLAYER_ID = get_instance_id()
 
 func start(pos):
@@ -27,6 +28,7 @@ func _physics_process(_delta):
 		var body := collision.get_collider()
 		$HealthBar.take_damage()
 		print("Collided with: ", body.name)
+	
 	play_anim(direction, LAST_DIRECTION)
 	
 func play_anim(dir, last_dir):
@@ -52,3 +54,6 @@ func play_anim(dir, last_dir):
 			$AnimatedSprite2D.play("walk_down")
 		elif  dir.x == -1:
 			$AnimatedSprite2D.play("walk_left")
+
+func _on_hit() -> void:
+	$HealthBar.take_damage()

@@ -35,3 +35,12 @@ func _physics_process(delta):
 
 func _on_navigation_agent_2d_navigation_finished():
 	finished = true
+
+func _on_body_entered(_body:Node2D):
+	$HitTimer.start()
+
+func _on_body_exited(_body:Node2D):
+	$HitTimer.stop()
+
+func _on_hit_timer_timeout():
+	SignalBus.emit_signal("on_hit")
