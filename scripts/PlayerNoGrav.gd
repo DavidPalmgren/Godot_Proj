@@ -6,11 +6,14 @@ var PLAYER_STATE: String
 var LAST_DIRECTION
 var PLAYER_ID
 var BUILD_MODE_ACTIVE = false
-var TILE_MAP: Node2D
-
+var TILE_MAP: Node2D #Ye this is the node2d parent of the tilemap :x
+var BUILDING
 
 func _ready():
 	PLAYER_ID = get_instance_id()
+
+func set_tilemap_ref(tilemap_ref: Node2D):
+	TILE_MAP = tilemap_ref
 
 func start(pos):
 	position = pos
@@ -21,34 +24,26 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			var mouse_pos = get_global_mouse_position()
-			var mouse_x = mouse_pos.x
-			var mouse_y = mouse_pos.y
-			var new_pos = Vector2(int(mouse_x/16) +5, int(mouse_y/16)+3)
-			#var local_pos = TILE_MAP.local_to_map(mouse_pos)
-			print(new_pos)
-			#print(local_pos)
-			
-			# Print or use the world position
-			print("Mouse button released at world position: ", mouse_pos)
-			TILE_MAP.place_wall_block(mouse_pos)
+			TILE_MAP.place_building_block(mouse_pos)
 
-func place_object(position):
-	var object_to_place = $object_to_place
-
-	# Assuming you have an object named "object_to_place"
-	if $object_to_place:
-		$object_to_place.global_position = position
-
-func set_tilemap_ref(tilemap_ref: Node2D):
-	TILE_MAP = tilemap_ref
-
-func enter_build_mode(position:Vector2): #building, pos:int
+func enter_build_mode(position:Vector2, building_item: String): #building, pos:int
 	BUILD_MODE_ACTIVE = true
+	BUILDING = get_building(building_item)
+	$Cursor.change_cursor("hand")
 	print("Entering build mode")
 
 func exit_build_mode():
 	BUILD_MODE_ACTIVE = false
+	BUILDING = ""
+	
+	$Cursor.change_cursor("none")
 	print("Exiting build mode")
+
+func get_building(building_ref):
+	var building
+	if building_ref == "wall":
+		building = "some prefab"
+	return building
 
 func place_building(position):
 	if BUILD_MODE_ACTIVE:

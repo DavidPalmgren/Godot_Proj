@@ -14,7 +14,7 @@ size = Vector2(41, 32)
 script = ExtResource("1_eey4b")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-visible = false
+position = Vector2(64, 64)
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -43,7 +43,6 @@ script = ExtResource("4_cvhvo")
 shape = SubResource("RectangleShape2D_64qo0")
 
 [node name="TestWorldGen" parent="." instance=ExtResource("6_cjubd")]
-position = Vector2(-101, -61)
 
 [node name="PlayerUI" parent="." instance=ExtResource("6_8l0x6")]
 

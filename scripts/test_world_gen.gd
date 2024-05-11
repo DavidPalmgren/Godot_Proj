@@ -7,18 +7,7 @@ const cell_size = 16
 const WALL_TILE_INDEX = Vector2(4,5)
 
 func _ready():
-	generate_world()
-
-func _input(event):
-	#why does this work because no camera2d obj?
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-			var mouse_pos = get_global_mouse_position()
-			print('glob mouse' , mouse_pos)
-			var tile_mouse_pos = tilemap.local_to_map(mouse_pos)
-
-			tilemap.set_cell(0, tile_mouse_pos, 0, WALL_TILE_INDEX)
-			
+	generate_world()			
 
 func generate_world():
 	var noise = FastNoiseLite.new()
@@ -33,19 +22,14 @@ func generate_world():
 				cells.append(Vector2(x,y))
 			else:
 				tilemap.set_cell(0, Vector2(x,y),0, Vector2(0,5))
-				
+
 	tilemap.set_cells_terrain_connect(0, cells, 0, 0)
 
-func place_wall_block(position: Vector2):
-	# Snap the position to the grid
-	
-	#var snapped_position = snap_to_grid(position)
-	var local_pos = tilemap.local_to_map(position)
-	print(local_pos)
-	# Set the cell on the TileMap to represent the wall block
-	tilemap.set_cell(0, local_pos, 0, WALL_TILE_INDEX)
+func place_building_block(position: Vector2):
+	var tile_mouse_pos = tilemap.local_to_map(position)
+	print('place wall block pos: ', tile_mouse_pos)
+	tilemap.set_cell(0, tile_mouse_pos, 0, WALL_TILE_INDEX)
 
-# Function to snap a position to the nearest grid cell
 func snap_to_grid(position: Vector2) -> Vector2:
 	return Vector2(
 		round(position.x / cell_size) * cell_size,

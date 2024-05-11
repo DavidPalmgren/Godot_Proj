@@ -7,7 +7,7 @@ const LAND_CAP = 0.3
 @onready var TILE_MAP = $TestWorldGen
 
 func new_game():
-	$Player.start($StartPosition.position)
+	$Player.start($StartPosition.position) #prolly just set to dead center of map
 	$TestWorldGen.generate_world()
 	$StartTimer.start()
 	init_UI()

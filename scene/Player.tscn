@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/PlayerNoGrav.gd" id="1_8esac"]
 [ext_resource type="Texture2D" uid="uid://l54kxjv0d0l2" path="res://assets/sprites/BlueNinja/SeparateAnim/Idle.png" id="2_el23r"]
 [ext_resource type="Texture2D" uid="uid://d1hymt8ec14kd" path="res://assets/sprites/BlueNinja/SeparateAnim/Walk.png" id="3_huo8p"]
-[ext_resource type="Texture2D" uid="uid://b1lbj6250mwgc" path="res://assets/sprites/BlueNinja/SeparateAnim/Dead.png" id="4_bevag"]
+[ext_resource type="Script" path="res://scene/Cursor.gd" id="4_wyg1g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yya4e"]
 atlas = ExtResource("2_el23r")
@@ -204,5 +204,5 @@ animation = &"walk_up"
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_oqbqb")
 
-[node name="object_to_place" type="Sprite2D" parent="."]
-texture = ExtResource("4_bevag")
+[node name="Cursor" type="Node2D" parent="."]
+script = ExtResource("4_wyg1g")
