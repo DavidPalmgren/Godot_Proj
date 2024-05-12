@@ -188,13 +188,13 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ibvhs"]
-radius = 7.0
-height = 18.0
+radius = 5.0
+height = 13.7801
 
 [node name="Mob" type="Area2D"]
 scale = Vector2(1, 1.01596)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 4
 script = ExtResource("1_meq1q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

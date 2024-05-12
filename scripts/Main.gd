@@ -3,6 +3,7 @@ extends Node2D
 func new_game():
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	$WorldTimer.start()
 
 func game_over():
 	$MobTimer.stop()

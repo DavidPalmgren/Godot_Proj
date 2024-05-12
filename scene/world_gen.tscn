@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://c45cdb86r58j7"]
 
-[ext_resource type="Script" path="res://scripts/world_gen.gd" id="1_7nwbi"]
+[ext_resource type="Script" path="res://Deprecated/world_gen (2).gd" id="1_7nwbi"]
 [ext_resource type="Texture2D" uid="uid://dncarhhn877yg" path="res://assets/tilemaps/Floor.png" id="2_tolfj"]
 [ext_resource type="Script" path="res://scripts/PlayerNoGrav.gd" id="3_vkjw1"]
 [ext_resource type="Texture2D" uid="uid://l54kxjv0d0l2" path="res://assets/sprites/BlueNinja/SeparateAnim/Idle.png" id="4_6h0kb"]

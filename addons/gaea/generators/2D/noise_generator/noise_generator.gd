@@ -22,7 +22,7 @@ func generate(starting_grid: GaeaGrid = null) -> void:
 
 	var time_now :int = Time.get_ticks_msec()
 
-	settings.noise.seed = seed
+	settings.noise.seed = get_parent().instance_seed
 
 	if starting_grid == null:
 		erase()

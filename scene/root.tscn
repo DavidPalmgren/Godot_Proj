@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://dbsrrethgduy7"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_m2yll"]
+[ext_resource type="Script" path="res://Deprecated/Player (2).gd" id="1_m2yll"]
 [ext_resource type="Texture2D" uid="uid://l54kxjv0d0l2" path="res://assets/sprites/BlueNinja/SeparateAnim/Idle.png" id="2_nk213"]
 [ext_resource type="Texture2D" uid="uid://d1hymt8ec14kd" path="res://assets/sprites/BlueNinja/SeparateAnim/Walk.png" id="3_kbfn1"]
 

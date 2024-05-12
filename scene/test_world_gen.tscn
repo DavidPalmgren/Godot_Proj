@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://nqlivagpugpo"]
 
-[ext_resource type="Script" path="res://scripts/test_world_gen.gd" id="1_iy0t8"]
+[ext_resource type="Script" path="res://Deprecated/test_world_gen (2).gd" id="1_iy0t8"]
 [ext_resource type="Texture2D" uid="uid://bhk0c15v7xsff" path="res://assets/tilemaps/Simple_Tilemap.png" id="2_e716a"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_aowsk"]
