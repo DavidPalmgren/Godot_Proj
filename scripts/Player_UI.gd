@@ -28,7 +28,7 @@ func set_new_lumber(gained_lumber: int):
 
 func _on_button_button_up_A1():
 	print("Enter placement mode")
-	PLAYER_REF.enter_build_mode(Vector2(2,2))
+	PLAYER_REF.enter_build_mode('wall')
 	#PLAYER_REF.enter_build_mode()
 
 func _on_button_button_up_A2():

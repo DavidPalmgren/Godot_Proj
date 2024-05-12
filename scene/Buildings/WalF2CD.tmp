@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cugltdgbx6jx"]
+
+[ext_resource type="Script" path="res://scene/Buildings/Wall_Barricade01.gd" id="1_hebuc"]
+[ext_resource type="Texture2D" uid="uid://dxkicgbhot5dw" path="res://assets/sprites/BlueNinja/SeparateAnim/Item.png" id="3_d0dvw"]
+[ext_resource type="PackedScene" uid="uid://c7em10v5rspq6" path="res://scene/GenericComponents/health_component.tscn" id="3_kikbi"]
+[ext_resource type="PackedScene" uid="uid://kxc8rt6i1us0" path="res://scene/GenericComponents/hitbox_component.tscn" id="4_xnf2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b3xg"]
+size = Vector2(8, 8)
+
+[node name="WallBarricade01" type="StaticBody2D"]
+script = ExtResource("1_hebuc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.513, 0.5)
+texture = ExtResource("3_d0dvw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_kikbi")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_xnf2y")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_0b3xg")

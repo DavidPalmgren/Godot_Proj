@@ -199,6 +199,7 @@ contact_monitor = true
 script = ExtResource("1_meq1q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_kabgf")
 animation = &"idle_up"
 

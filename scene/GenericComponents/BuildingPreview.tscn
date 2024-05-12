@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://684k480gxxn"]
+
+[ext_resource type="Texture2D" uid="uid://dxkicgbhot5dw" path="res://assets/sprites/BlueNinja/SeparateAnim/Item.png" id="1_j2kyb"]
+
+[node name="BuildingPreview" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.494118)
+texture_filter = 1
+texture = ExtResource("1_j2kyb")

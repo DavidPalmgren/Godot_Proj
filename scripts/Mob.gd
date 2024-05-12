@@ -2,6 +2,7 @@ extends RigidBody2D
 @export var mob_scene: PackedScene
 # Called when the node enters the scene tree for the first time.
 var target_player
+var attack_damage := 10   
 
 func _ready():
 	var mob = $AnimatedSprite2D.sprite_frames.get_animation_names()
@@ -25,6 +26,13 @@ func _process(_delta):
 
 func _on_body_entered(body:Node):
 	print(body, " entered")
+
+func _on_hitbox_area_entered(area):
+	if area is HitboxComponent:
+		var hitbox : HitboxComponent = area
+		var dmg = attack_damage
+		print('Die bitch')
+		hitbox.damage(dmg)
 
 func _on_body_exited(body:Node):
 	print(body, " exited")
