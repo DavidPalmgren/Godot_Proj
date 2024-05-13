@@ -3,7 +3,6 @@ extends Area2D
 @onready var nav : NavigationAgent2D = $NavigationAgent2D
 var finished = false
 var target_player
-var attack_damage := 10   
 var speed = 100
 
 func set_target_player(player):
@@ -39,13 +38,6 @@ func _on_navigation_agent_2d_navigation_finished():
 
 func _on_body_entered(_body:Node2D):
 	$HitTimer.start()
-
-func _on_hitbox_area_entered(area):
-	if area is HitboxComponent:
-		var hitbox : HitboxComponent = area
-		var dmg = attack_damage
-		print('Die bitch')
-		hitbox.damage(dmg)
 
 func _on_body_exited(_body:Node2D):
 	$HitTimer.stop()
