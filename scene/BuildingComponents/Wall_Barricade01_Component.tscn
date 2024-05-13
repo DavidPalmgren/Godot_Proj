@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xrkcr510ux0g"]
+
+[ext_resource type="Script" path="res://scene/BuildingComponents/Wall_Barricade01_Component.gd" id="1_ilutp"]
+
+[node name="WallBarricade01Component" type="Node2D"]
+script = ExtResource("1_ilutp")

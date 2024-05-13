@@ -1,11 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://ddhqdbqct5vub"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_eey4b"]
-[ext_resource type="PackedScene" uid="uid://d165t144f1du0" path="res://scene/Gaea_test.tscn" id="2_h1vrx"]
 [ext_resource type="PackedScene" uid="uid://d23o336fdgod5" path="res://scene/Player.tscn" id="3_43gjo"]
 [ext_resource type="Script" path="res://scripts/Spawner.gd" id="4_cvhvo"]
 [ext_resource type="PackedScene" uid="uid://dur0lx77it1yi" path="res://scene/Player_UI.tscn" id="6_8l0x6"]
-[ext_resource type="Script" path="res://scripts/gaea_gen.gd" id="6_gs456"]
+[ext_resource type="PackedScene" uid="uid://nqlivagpugpo" path="res://scene/test_world_gen.tscn" id="6_cjubd"]
 [ext_resource type="PackedScene" uid="uid://2haodhddsc4f" path="res://scene/GenericComponents/HUD.tscn" id="6_ktq55"]
 [ext_resource type="PackedScene" uid="uid://cugltdgbx6jx" path="res://scene/Buildings/Wall_Barricade01.tscn" id="7_q6hjv"]
 [ext_resource type="Script" path="res://scene/Buildings/HealthComponent.gd" id="8_bfe37"]
@@ -14,36 +13,28 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64qo0"]
 size = Vector2(41, 32)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node"]
 script = ExtResource("1_eey4b")
 
-[node name="GaeaGen" parent="." instance=ExtResource("2_h1vrx")]
-script = ExtResource("6_gs456")
-
-[node name="WorldTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(1038, 1041)
+position = Vector2(64, 64)
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 1.99
+wait_time = 2.0
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="Player" parent="." groups=["players"] instance=ExtResource("3_43gjo")]
-collision_layer = 7
-collision_mask = 7
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 
 [node name="HealthBar" parent="Player" instance=ExtResource("6_ktq55")]
-offset_left = -54.0
-offset_top = -26.0
-offset_right = 1447.0
-offset_bottom = 617.0
+offset_left = -46.0
+offset_top = -20.0
+offset_right = 1455.0
+offset_bottom = 623.0
 scale = Vector2(0.140667, 0.160807)
 metadata/_edit_use_anchors_ = true
 
@@ -65,7 +56,6 @@ script = ExtResource("8_bfe37")
 [node name="Mob" parent="." instance=ExtResource("8_ng1lg")]
 position = Vector2(55, 92)
 
-[connection signal="timeout" from="WorldTimer" to="GaeaGen" method="_on_world_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="lose" from="Player/HealthBar" to="." method="_on_health_bar_lose"]
