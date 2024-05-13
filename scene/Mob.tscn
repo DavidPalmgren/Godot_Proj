@@ -187,9 +187,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ibvhs"]
-radius = 5.0
-height = 13.7801
+[sub_resource type="CircleShape2D" id="CircleShape2D_gedlt"]
+radius = 5.09596
 
 [node name="Mob" type="Area2D"]
 scale = Vector2(1, 1.01596)
@@ -202,7 +201,7 @@ sprite_frames = SubResource("SpriteFrames_kabgf")
 animation = &"idle_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ibvhs")
+shape = SubResource("CircleShape2D_gedlt")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

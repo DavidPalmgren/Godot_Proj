@@ -46,7 +46,7 @@ func _process(_delta):
 func _on_world_timer_timeout():
 	print("timed out!!")
 	navigation_mesh = NavigationPolygon.new()
-	navigation_mesh.agent_radius = 10.0
+	navigation_mesh.agent_radius = 5.0
 	source_geometry = NavigationMeshSourceGeometryData2D.new()
 	callback_parsing = on_parsing_done
 	callback_baking = on_baking_done
