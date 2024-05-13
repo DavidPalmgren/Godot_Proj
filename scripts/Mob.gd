@@ -4,6 +4,11 @@ extends Area2D
 var finished = false
 var target_player
 var speed = 100
+var attack_damage := 10   
+
+func _ready():
+	var mob = $AnimatedSprite2D.sprite_frames.get_animation_names()
+	$AnimatedSprite2D.play(mob[4])
 
 func set_target_player(player):
 	target_player = player
@@ -42,5 +47,17 @@ func _on_body_entered(_body:Node2D):
 func _on_body_exited(_body:Node2D):
 	$HitTimer.stop()
 
+<<<<<<< HEAD
 func _on_hit_timer_timeout():
 	SignalBus.emit_signal("on_hit")
+=======
+func _on_hitbox_area_entered(area):
+	if area is HitboxComponent:
+		var hitbox : HitboxComponent = area
+		var dmg = attack_damage
+		print('Die bitch')
+		hitbox.damage(dmg)
+
+func _on_body_exited(body:Node):
+	print(body, " exited")
+>>>>>>> UI_feature

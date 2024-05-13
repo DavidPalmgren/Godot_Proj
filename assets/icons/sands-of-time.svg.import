@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4kg0u7lsi6u7"
-path="res://.godot/imported/Solaria Demo Tiles.png-d9ebc43b610066f3a46d9a557ea9203b.ctex"
+uid="uid://csqjpkl2iq3wo"
+path="res://.godot/imported/sands-of-time.svg-26c340a080908580c194e496242d84d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemaps/Solaria Demo Tiles.png"
-dest_files=["res://.godot/imported/Solaria Demo Tiles.png-d9ebc43b610066f3a46d9a557ea9203b.ctex"]
+source_file="res://assets/icons/sands-of-time.svg"
+dest_files=["res://.godot/imported/sands-of-time.svg-26c340a080908580c194e496242d84d1.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
