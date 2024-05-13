@@ -5,6 +5,7 @@ var source_geometry : NavigationMeshSourceGeometryData2D
 var callback_parsing : Callable
 var callback_baking : Callable
 var region_rid: RID
+var cell_size := 16
 
 const MAP_SIZE = Vector2(100,100)
 const LAND_CAP = 0.075

@@ -9,6 +9,8 @@ var attack_damage := 10
 func _ready():
 	var mob = $AnimatedSprite2D.sprite_frames.get_animation_names()
 	$AnimatedSprite2D.play(mob[4])
+	set_physics_process(false)
+	call_deferred('setup')
 
 func set_target_player(player):
 	target_player = player
@@ -20,17 +22,13 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _set_player(player_ref: Node):
 	target_player = player_ref
-
-func _ready():
-	var mob = $AnimatedSprite2D.sprite_frames.get_animation_names()
-	$AnimatedSprite2D.play(mob[4])
-	set_physics_process(false)
-	call_deferred('setup')
-	
-func setup():
 	await get_tree().physics_frame
 	set_physics_process(true)
 	nav.target_position = target_player.global_position
+
+func setup():
+	pass
+
 
 func _physics_process(delta):
 	if not finished:
@@ -47,17 +45,11 @@ func _on_body_entered(_body:Node2D):
 func _on_body_exited(_body:Node2D):
 	$HitTimer.stop()
 
-<<<<<<< HEAD
 func _on_hit_timer_timeout():
 	SignalBus.emit_signal("on_hit")
-=======
 func _on_hitbox_area_entered(area):
 	if area is HitboxComponent:
 		var hitbox : HitboxComponent = area
 		var dmg = attack_damage
 		print('Die bitch')
 		hitbox.damage(dmg)
-
-func _on_body_exited(body:Node):
-	print(body, " exited")
->>>>>>> UI_feature
