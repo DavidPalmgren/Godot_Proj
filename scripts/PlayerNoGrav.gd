@@ -5,7 +5,7 @@ var HEALTH: int = 100
 var PLAYER_STATE: String
 var LAST_DIRECTION
 var PLAYER_ID
-var GRID_SIZE
+var GRID_SIZE = 16
 
 var BUILD_MODE_ACTIVE = false
 var TILE_MAP: Node2D #Ye this is the node2d parent of the tilemap :x
@@ -19,7 +19,6 @@ func _ready():
 
 func set_tilemap_ref(tilemap_ref: Node2D):
 	TILE_MAP = tilemap_ref
-	GRID_SIZE = TILE_MAP.cell_size
 	print('grid size is', GRID_SIZE)
 
 func start(pos):

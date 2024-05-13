@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddhqdbqct5vub"]
+[gd_scene load_steps=12 format=3 uid="uid://ddhqdbqct5vub"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_eey4b"]
 [ext_resource type="PackedScene" uid="uid://d165t144f1du0" path="res://scene/Gaea_test.tscn" id="2_h1vrx"]
-[ext_resource type="PackedScene" path="res://scene/Player.tscn" id="3_43gjo"]
+[ext_resource type="PackedScene" uid="uid://d23o336fdgod5" path="res://scene/Player.tscn" id="3_43gjo"]
 [ext_resource type="Script" path="res://scripts/Spawner.gd" id="4_cvhvo"]
 [ext_resource type="PackedScene" path="res://scene/Player_UI.tscn" id="6_8l0x6"]
-[ext_resource type="PackedScene" uid="uid://nqlivagpugpo" path="res://scene/test_world_gen.tscn" id="6_cjubd"]
 [ext_resource type="Script" path="res://scripts/gaea_gen.gd" id="6_gs456"]
 [ext_resource type="PackedScene" uid="uid://2haodhddsc4f" path="res://scene/GenericComponents/HUD.tscn" id="6_ktq55"]
 [ext_resource type="PackedScene" uid="uid://cugltdgbx6jx" path="res://scene/Buildings/Wall_Barricade01.tscn" id="7_q6hjv"]
@@ -22,6 +21,7 @@ script = ExtResource("1_eey4b")
 script = ExtResource("6_gs456")
 
 [node name="WorldTimer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
@@ -54,8 +54,6 @@ script = ExtResource("4_cvhvo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner"]
 shape = SubResource("RectangleShape2D_64qo0")
-
-[node name="TestWorldGen" parent="." instance=ExtResource("6_cjubd")]
 
 [node name="PlayerUI" parent="." instance=ExtResource("6_8l0x6")]
 
