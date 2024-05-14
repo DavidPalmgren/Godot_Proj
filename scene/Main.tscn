@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddhqdbqct5vub"]
+[gd_scene load_steps=11 format=3 uid="uid://ddhqdbqct5vub"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_eey4b"]
 [ext_resource type="PackedScene" uid="uid://d165t144f1du0" path="res://scene/Gaea_test.tscn" id="2_h1vrx"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://2haodhddsc4f" path="res://scene/GenericComponents/HUD.tscn" id="6_ktq55"]
 [ext_resource type="PackedScene" uid="uid://cugltdgbx6jx" path="res://scene/Buildings/Wall_Barricade01.tscn" id="7_q6hjv"]
 [ext_resource type="Script" path="res://scene/Buildings/HealthComponent.gd" id="8_bfe37"]
-[ext_resource type="PackedScene" uid="uid://h0b35s0ax5el" path="res://scene/Mob.tscn" id="8_ng1lg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64qo0"]
 size = Vector2(41, 32)
@@ -60,9 +59,6 @@ shape = SubResource("RectangleShape2D_64qo0")
 [node name="WallBarricade01" parent="." instance=ExtResource("7_q6hjv")]
 position = Vector2(64, 100)
 script = ExtResource("8_bfe37")
-
-[node name="Mob" parent="." instance=ExtResource("8_ng1lg")]
-position = Vector2(55, 92)
 
 [connection signal="timeout" from="WorldTimer" to="GaeaGen" method="_on_world_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

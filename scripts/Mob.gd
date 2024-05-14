@@ -22,12 +22,12 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _set_player(player_ref: Node):
 	target_player = player_ref
+	
+
+func setup():
 	await get_tree().physics_frame
 	set_physics_process(true)
 	nav.target_position = target_player.global_position
-
-func setup():
-	pass
 
 
 func _physics_process(delta):
