@@ -23,7 +23,10 @@ func spawn():
 			var mob = mob_scene.instantiate()
 			mob.position.x = position.x + lerp(-50, 50, randf())
 			mob.position.y = position.y + lerp(-50, 50, randf())
+			print('ass')
 			mob.set_target_player(player)
+			print('tits')
+			
 			get_parent().add_child(mob) # better if we add a seperate parent node for these rather then spamming them onto the root node
 			spawned.emit()
 			return mob

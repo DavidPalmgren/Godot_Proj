@@ -5,10 +5,10 @@ var HEALTH: int = 100
 var PLAYER_STATE: String
 var LAST_DIRECTION
 var PLAYER_ID
-var GRID_SIZE
+var GRID_SIZE = 16
 
 var BUILD_MODE_ACTIVE = false
-var TILE_MAP: Node2D #Ye this is the node2d parent of the tilemap :x
+var TILE_MAP: TileMap #Ye this is the node2d parent of the tilemap :x
 var BUILDING: PackedScene
 var preview_building
 var building_offset
@@ -16,10 +16,10 @@ var building_offset
 func _ready():
 	SignalBus.connect("on_hit", _on_hit)
 	PLAYER_ID = get_instance_id()
+	
 
 func set_tilemap_ref(tilemap_ref: Node2D):
 	TILE_MAP = tilemap_ref
-	GRID_SIZE = TILE_MAP.cell_size
 	print('grid size is', GRID_SIZE)
 
 func start(pos):
@@ -32,14 +32,18 @@ func round_to_nearest_grid(value):
 
 # Snap a position to the grid
 func snap_to_grid(position):
-	return Vector2(round_to_nearest_grid(position.x), round_to_nearest_grid(position.y))
-
+	var map_position = TILE_MAP.local_to_map(position)
+	var snapped_position = TILE_MAP.map_to_local(map_position)
+	return snapped_position
 
 func _input(event):
 	if BUILDING and BUILD_MODE_ACTIVE:
 		if event.is_action_pressed("ui_cancel"):
 			exit_build_mode()
 		elif event is InputEventMouseMotion:
+			var mouse_pos = get_global_mouse_position()
+			var snapped_position = snap_to_grid(mouse_pos)
+			print(snapped_position)
 			set_preview_building_position()
 		elif event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT:

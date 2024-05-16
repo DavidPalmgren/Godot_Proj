@@ -4,7 +4,8 @@ const MAP_SIZE = Vector2(100,100)
 const LAND_CAP = 0.3
 @onready var GUI = $PlayerUI
 @onready var PLAYER = $Player
-@onready var TILE_MAP = $TestWorldGen
+@onready var TILE_MAP = $GaeaGen/GaeaGen2/TileMap
+
 
 func new_game():
 	$Player.start($StartPosition.position)

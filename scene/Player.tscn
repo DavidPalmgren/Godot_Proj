@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d23o336fdgod5"]
+[gd_scene load_steps=28 format=3 uid="uid://cmtl6aitasgw"]
 
 [ext_resource type="Script" path="res://scripts/PlayerNoGrav.gd" id="1_8esac"]
 [ext_resource type="Texture2D" uid="uid://l54kxjv0d0l2" path="res://assets/sprites/BlueNinja/SeparateAnim/Idle.png" id="2_el23r"]
@@ -213,6 +213,7 @@ shape = SubResource("CircleShape2D_oqbqb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2, 2)
 shape = SubResource("CircleShape2D_g0ifj")
+
 [node name="Cursor" type="Node2D" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
